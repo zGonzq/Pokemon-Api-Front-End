@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css">
+    <script src="/js/bootstrap-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="px-4 py-3 my-5 text-center">
+        <img id="logo" class="d-block mx-auto mb-4" src="/images/logo.png" alt="">
+        <h1 class="display-5 fw-bold text-body-emphasis">Pokedex</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4"> Pokedex para la actividad de web  </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/options/create"><button type="button" class="btn btn-success btn-lg px-4 gap-3">Crear pokemon</button></a>
+          </div>
+        </div>
+      </div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><% data.forEach(item => { %> <%= item.pokename %> <% }) %> </li>
+        </ol>
+      </nav>
+
+    <div class="container">
+        <div class="row">
+        <% data.forEach(item => { %>
+          <ol class="col list-group pb-5">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">ID pokemon</div>
+                    <%= item.IDpoke %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Nombre del pokemon</div>
+                <%= item.pokename %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Puntos de salud</div>
+                <%= item.HP %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Ataque</div>
+                <%= item.attack %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Defensa</div>
+                <%= item.defense %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Ataque especial</div>
+                <%= item.spattack %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Defensa especial</div>
+                <%= item.spdefense %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Velocidad</div>
+                <%= item.speed %>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Tipo</div>
+                <%= item.dualtype %>
+              </div>
+            </li>
+          </ol>
+          <% }) %>
+            </div>
+        </div>
+</body>
+</html>

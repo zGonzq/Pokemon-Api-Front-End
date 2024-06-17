@@ -18,30 +18,52 @@ const config_1 = require("../config");
 class optionsController {
     view(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params.id;
-            const response = yield axios_1.default.get(`${config_1.API_URL}/api/pokemon/find/${id}`);
-            let data = response.data;
-            if (!Array.isArray(data)) {
-                data = [data];
+            try {
+                const id = req.params.id;
+                const response = yield axios_1.default.get(`${config_1.API_URL}/api/pokemon/find/${id}`);
+                let data = response.data;
+                if (!Array.isArray(data)) {
+                    data = [data];
+                }
+                res.render('Actions/view', { data });
             }
-            res.render('Options/view', { data });
+            catch (error) {
+                res.redirect('/');
+            }
         });
     }
     edit(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            res.render('Options/Edit');
+            try {
+                const id = req.params.id;
+                const response = yield axios_1.default.get(`${config_1.API_URL}/api/pokemon/find/${id}`);
+                let data = response.data;
+                if (!Array.isArray(data)) {
+                    data = [data];
+                }
+                res.render('Actions/edit', { data });
+            }
+            catch (error) {
+                res.redirect('/');
+            }
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params.id;
-            yield axios_1.default.delete(`${config_1.API_URL}/api/pokemon/delete/${id}`);
-            res.redirect('/');
+            try {
+                const id = req.params.id;
+                yield axios_1.default.delete(`${config_1.API_URL}/api/pokemon/delete/${id}`);
+                res.redirect('/');
+            }
+            catch (error) {
+                res.redirect('/');
+                res.status(500).json({ message: 'Error deleting the pokemon' });
+            }
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            res.render('Options/Create');
+            res.render('Actions/Create');
         });
     }
 }

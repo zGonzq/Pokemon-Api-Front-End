@@ -5,27 +5,48 @@ import { API_URL } from "../config";
 export class optionsController{
 
     async view(req: Request, res: Response): Promise<void> {
-        const id = req.params.id;
-        const response = await axios.get(`${API_URL}/api/pokemon/find/${id}`);
-        let data = response.data;
-        if (!Array.isArray(data)) {
-            data = [data];
+        try {     
+            const id = req.params.id;
+            const response = await axios.get(`${API_URL}/api/pokemon/find/${id}`);
+            let data = response.data;
+            if (!Array.isArray(data)) {
+                data = [data];
+            }
+            res.render('Actions/view', { data });
         }
-        res.render('Options/view', { data });
+        catch (error) {
+            res.redirect('/');
+        }
     }
 
     async edit(req: Request, res: Response): Promise<void> {
-        res.render('Options/Edit');
+        try{
+            const id = req.params.id;
+            const response = await axios.get(`${API_URL}/api/pokemon/find/${id}`);
+            let data = response.data;
+            if (!Array.isArray(data)) {
+                data = [data];
+            }
+            res.render('Actions/edit', { data });
+        } catch (error) {
+            res.redirect('/');
+        }
     }
 
     async delete(req: Request, res: Response): Promise<void> {
-        const id = req.params.id;
-        await axios.delete(`${API_URL}/api/pokemon/delete/${id}`);
-        res.redirect('/');
+        try {
+            const id = req.params.id;
+            await axios.delete(`${API_URL}/api/pokemon/delete/${id}`);
+            res.redirect('/');
+        } catch (error) {
+            res.redirect('/');
+            res.status(500).json({ message: 'Error deleting the pokemon' });
+        }
+
     }
 
     async create(req: Request, res: Response): Promise<void> {
-        res.render('Options/Create');
+        res.render('Actions/Create');
     }
 
 

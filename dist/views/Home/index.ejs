@@ -4,56 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css">
+    <script src="/js/bootstrap-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="Intro">
-        <img id="logo" src="/images/logo.png" alt="logo pokemon">
-        <div id="total">
-            <h3 >Total: <%= data.length %></h3>
+    <div class="px-4 py-5 my-5 text-center">
+        <img id="logo" class="d-block mx-auto mb-4" src="/images/logo.png" alt="">
+        <h1 class="display-5 fw-bold text-body-emphasis">Pokedex</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4"> Pokedex para la actividad de web  </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/options/create"><button type="button" class="btn btn-success btn-lg px-4 gap-3">Crear pokemon</button></a>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Total de pokemones: <%= data.length %></button>
+          </div>
         </div>
-        <a href="/options/create"><button id="Agregar">Agregar</button></a>
-    </div>
-    <table>
-        <tr>
-            <th id="idPoke">ID Pokemon</th>
-            <th id="pokemon">Pokemon</th>
-            <th id="hp">HP</th>
-            <th id="atk">Ataque</th>
-            <th id="def">Defensa</th>
-            <th id="spatk">Ataque Especial</th>
-            <th id="spdef">Defensa Especial</th>
-            <th id="speed">Velocidad</th>
-            <th id="dualtype">Tipo</th>
-            <th id="opciones">Opciones</th>
-        </tr>
-        <tr>
-            <% data.forEach(item => { %>
-            <tr>
-                <td><%= item.IDpoke %></td>
-                <td><%= item.pokename %></td>
-                <td><%= item.HP %></td>
-                <td><%= item.attack %></td>
-                <td><%= item.defense %></td>
-                <td><%= item.spattack %></td>
-                <td><%= item.spdefense %></td>
-                <td><%= item.speed %></td>
-                <td><%= item.dualtype %></td>
-                <td class="opciones">
-                    <a href="/options/view/<%= item.IDpoke %>"><button class="button-85" id="Ver">Ver</button></a>
-                    <a href="/options/edit/<%= item.IDpoke %>"><button class="button-85" id="Editar">Editar</button></a>
-                    <a href="/options/delete/<%= item.IDpoke %>" onclick="return confirm('¿Estás seguro de que quieres eliminar este Pokémon?');"><button class="button-85" id="Eliminar">Eliminar</button></a>
-                </td>
+      </div>
 
-            </tr>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+          <% data.forEach(item => { %>
+            <ol class="col-4 list-group pb-5">
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">ID pokemon</div>
+                      <%= item.IDpoke %>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Nombre del pokemon</div>
+                  <%= item.pokename %>
+                </div>
+              </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold pb-1">Acciones</div>
+                  <a href="/actions/view/<%= item.IDpoke %>"><button class="btn btn-primary btn-sm"><i class="bi bi-zoom-in"></i> Ver</button></a>
+                  <a href="/actions/edit/<%= item.IDpoke %>"><button class="btn btn-success btn-sm"><i class="bi bi-pen"></i> Editar</button></a>
+                  <a href="/actions/delete/<%= item.IDpoke %>" onclick="return confirm('¿Estás seguro de que quieres eliminar este Pokémon?');"><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3"></i> Eliminar</button></a>
+                </div>
+            </ol>
             <% }) %>
-        </tr>
-    </table>
+            </div>
+        </div>
     
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Desarrollado por <a href="https://github.com/zgonzq" rel="noopener noreferrer" target="_blank">Gonza</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 </body>
 </html>
-
-<style>
-
-
-</style>

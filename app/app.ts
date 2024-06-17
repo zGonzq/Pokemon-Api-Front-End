@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
-app.use('/options', optionsRouter);
+app.use('/actions', optionsRouter);
 
 
 const port = process.env.PORT || 3100;
