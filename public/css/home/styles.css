@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f44336;
+}
+
+.Intro, table {
+text-align: center;
+margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}   
+
+th {
+    color: black;
+}
+
+#buttnAdd {
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+#Agregar{
+    background-color: #008CBA;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#Ver {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+#Editar {
+    background-color: #008CBA;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+#Eliminar {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+#logo {
+    width: 40%;
+}
+
+#total {
+    margin: 0 auto;
+    padding: 10px;
+    color: white;
+    background-color: aqua;
+}
+
+#total h3 {
+    margin: 0;
+    width: 100%;
+}
+
