@@ -31,8 +31,8 @@
     <div class="container">
         <div class="row">
         <% data.forEach(item => { %>
-          <ol class="col list-group pb-5">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+          <ol class="col list-group pb-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center active">
               <div class="ms-2 me-auto">
                 <div class="fw-bold">ID pokemon</div>
                     <%= item.IDpoke %>
@@ -87,6 +87,10 @@
               </div>
             </li>
           </ol>
+          <div class="mb-4">
+            <a href="/actions/edit/<%= item.IDpoke %>"><button class="btn btn-success btn-sm"><i class="bi bi-pen"></i> Editar</button></a>
+            <a href="/actions/delete/<%= item.IDpoke %>"><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3"></i> Eliminar</button></a>
+          </div>
           <% }) %>
             </div>
         </div>

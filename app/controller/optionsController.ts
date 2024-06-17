@@ -36,11 +36,14 @@ export class optionsController{
     async delete(req: Request, res: Response): Promise<void> {
         try {
             const id = req.params.id;
-            await axios.delete(`${API_URL}/api/pokemon/delete/${id}`);
-            res.redirect('/');
+            const response = await axios.get(`${API_URL}/api/pokemon/find/${id}`);
+            let data = response.data;
+            if (!Array.isArray(data)) {
+                data = [data];
+            }
+            res.render('Actions/delete', { data });
         } catch (error) {
-            res.redirect('/');
-            res.status(500).json({ message: 'Error deleting the pokemon' });
+
         }
 
     }
@@ -48,6 +51,4 @@ export class optionsController{
     async create(req: Request, res: Response): Promise<void> {
         res.render('Actions/Create');
     }
-
-
 }

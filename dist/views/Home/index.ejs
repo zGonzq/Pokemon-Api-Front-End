@@ -47,9 +47,9 @@
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold pb-1">Acciones</div>
-                  <a href="/actions/view/<%= item.IDpoke %>"><button class="btn btn-primary btn-sm"><i class="bi bi-zoom-in"></i> Ver</button></a>
+                  <a href="/actions/view/<%= item.IDpoke %>"><button class="btn btn-primary btn-sm"><i class="bi bi-zoom-in"></i> Ver más</button></a>
                   <a href="/actions/edit/<%= item.IDpoke %>"><button class="btn btn-success btn-sm"><i class="bi bi-pen"></i> Editar</button></a>
-                  <a href="/actions/delete/<%= item.IDpoke %>" onclick="return confirm('¿Estás seguro de que quieres eliminar este Pokémon?');"><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3"></i> Eliminar</button></a>
+                  <a href="/actions/delete/<%= item.IDpoke %>"><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3"></i> Eliminar</button></a>
                 </div>
             </ol>
             <% }) %>

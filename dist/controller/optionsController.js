@@ -52,12 +52,14 @@ class optionsController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const id = req.params.id;
-                yield axios_1.default.delete(`${config_1.API_URL}/api/pokemon/delete/${id}`);
-                res.redirect('/');
+                const response = yield axios_1.default.get(`${config_1.API_URL}/api/pokemon/find/${id}`);
+                let data = response.data;
+                if (!Array.isArray(data)) {
+                    data = [data];
+                }
+                res.render('Actions/delete', { data });
             }
             catch (error) {
-                res.redirect('/');
-                res.status(500).json({ message: 'Error deleting the pokemon' });
             }
         });
     }
