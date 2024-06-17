@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Agregar Pokemon</h1>
+
+
+    <form action="http://localhost/api/pokemon/add">
+        <table>
+            <tr>
+                <td id="categoria"><label for="IDpoke">Pokemon Id</label></td>
+                <td><input type="text" name="IDpoke" id="idpoke"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="pokename">Nombre del Pokemon</label></td>
+                <td><input type="text" name="pokename" id="pokename"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="HP">HP</label></td>
+                <td><input type="number" name="HP" id="HP"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="attack">Ataque</label></td>
+                <td><input type="number" name="attack" id="attack"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="defense">Defensa</label></td>
+                <td><input type="number" name="defense" id="defense"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="spattack">Ataque Especial</label></td>
+                <td><input type="number" name="spattack" id="spattack"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="spdefense">Defensa Especial</label></td>
+                <td><input type="number" name="spdefense" id="spdefense"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="speed">Velocidad</label></td>
+                <td><input type="number" name="speed" id="speed"></td>
+            </tr>
+            <tr>
+                <td id="categoria"><label for="dualtype">Tipo</label></td>
+                <td><input type="text" name="dualtype" id="dualtype"></td>
+            </tr>
+        </table>
+        <button type="submit">Agregar</button>
+    </form>
+    
+</body>
+</html>
+
+<style>
+    :root{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input {
+        margin: 5px;
+    }
+    button {
+        margin: 5px;
+    }
+    label {
+        margin: 5px;
+    }
+    tr {
+        margin: 5px;
+    }
+
+    td {
+        margin: 5px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    table {
+        margin: 0 auto;
+        width: 80%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #categoria {
+        width: 200px;
+    }
+
+    button {
+        background-color: #008CBA;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+</style>
+
+<script>
+
+//no permitir que se envie el formulario si no se han llenado todos los campos
+
+document.querySelector('form').addEventListener('submit', function(e) {
+    let inputs = document.querySelectorAll('input');
+    let empty = false;
+    inputs.forEach(input => {
+        if (input.value === '') {
+            empty = true;
+        }
+    });
+    if (empty) {
+        e.preventDefault();
+        alert('Por favor llene todos los campos');
+    }
+});
+
+</script>
