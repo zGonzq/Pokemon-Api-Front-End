@@ -12,5 +12,6 @@ export class indexController{
         } catch (error) {
             console.log(`Error: ${error}`);
         }
+
     }
 }

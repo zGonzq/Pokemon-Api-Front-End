@@ -1,151 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<section>
+    <div class="px-4 py-3 my-5 text-center">
+        <img id="logo" class="d-block mx-auto mb-4" src="/images/logo.png" alt="">
+        <h1 class="display-5 fw-bold text-body-emphasis">Pokedex</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4"> Pokedex para la actividad de web  </p>
+          <div class="d-grid gap
+            -2 d-sm-flex justify-content-sm-center">
+            </div>
+        </div>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Create </li>
+        </ol>
+      </nav>
 
-    <h1>Agregar Pokemon</h1>
-
-
-    <form action="http://localhost/api/pokemon/add" method="post">
-        <table>
-            <tr>
-                <td id="categoria"><label for="IDpoke">Pokemon Id</label></td>
-                <td><input type="text" name="IDpoke" id="idpoke"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="pokename">Nombre del Pokemon</label></td>
-                <td><input type="text" name="pokename" id="pokename"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="HP">HP</label></td>
-                <td><input type="number" name="HP" id="HP"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="attack">Ataque</label></td>
-                <td><input type="number" name="attack" id="attack"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="defense">Defensa</label></td>
-                <td><input type="number" name="defense" id="defense"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="spattack">Ataque Especial</label></td>
-                <td><input type="number" name="spattack" id="spattack"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="spdefense">Defensa Especial</label></td>
-                <td><input type="number" name="spdefense" id="spdefense"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="speed">Velocidad</label></td>
-                <td><input type="number" name="speed" id="speed"></td>
-            </tr>
-            <tr>
-                <td id="categoria"><label for="dualtype">Tipo</label></td>
-                <td><input type="text" name="dualtype" id="dualtype"></td>
-            </tr>
-        </table>
-        <button type="submit">Agregar</button>
+    <div class="container">
+        <h1 class="text-center">Crear un pokemon</h1>
+    <div class="row">
+    <form action="/actions/create" method="post">
+        <ul class="list-group list-group-horizontal" id="listado">
+            <ol class="list-group">
+                <li class="list-group-item"><label for="IDpoke">ID pokemon</label><br><input type="number" name="IDpoke" id="IDpoke" placeholder="1" min="1"></li>
+                <li class="list-group-item"><label for="pokename">Nombre</label><br><input type="text" name="pokename" id="pokename" placeholder="Bulbasaur"></li>
+                <li class="list-group-item"><label for="HP">Puntos de salud</label><br><input type="number" name="HP" id="HP" placeholder="45" min="1"></li>
+                <li class="list-group-item"><label for="attack">Ataque</label><br><input type="number" name="attack" id="attack" placeholder="49" min="1"></li>
+                <li class="list-group-item"><label for="defense">Defensa</label><br><input type="number" name="defense" id="defense" placeholder="49" min="1"></li>
+                <li class="list-group-item"><label for="spattack">Ataque Especial</label><br><input type="number" name="spattack" id="spattack" placeholder="45" min="1"></li>
+                <li class="list-group-item"><label for="spdefense">Defensa Especial</label><br><input type="number" name="spdefense" id="spdefense" placeholder="49" min="1"></li>
+                <li class="list-group-item"><label for="speed">Velocidad</label><br><input type="number" name="speed" id="speed" placeholder="49" min="1"></li>
+                <li class="list-group-item"><label for="dualtype">Tipo</label><br><input type="number" name="dualtype" id="dualtype" placeholder="49" min="1"></li>
+              </ol>
+        </ul>
+        <input type="submit" value="Crear" class="btn btn-success my-3">
     </form>
-    
-</body>
-</html>
+    </div>
+    </div>
+</section>
 
 <style>
-    :root{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    body {
+    section{
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    input {
-        margin: 5px;
-    }
-    button {
-        margin: 5px;
-    }
-    label {
-        margin: 5px;
-    }
-    tr {
-        margin: 5px;
+
+    input[type="submit"]{
+        width: 100%;
+        border-radius: 8px;
+        padding: 5px;
+        margin: 3px 0;
     }
 
-    td {
-        margin: 5px;
+    input[type="number"]{
+        width: 100%;
+        border-radius: 8px;
+        padding: 5px;
+        margin: 3px 0;
+        border: 1px solid #ccc;
     }
-
-    h1 {
-        text-align: center;
+    input[type="text"]{
+        width: 100%;
+        border-radius: 8px;
+        padding: 5px;
+        margin: 3px 0;
+        border: 1px solid #ccc;
     }
-
-    h3 {
-        text-align: center;
+    label{
+        font-weight: bold;
     }
-
-    table {
-        margin: 0 auto;
-        width: 80%;
-        border-collapse: collapse;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-    }
-
-    th, td {
-        padding: 15px;
-        text-align: left;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    #categoria {
-        width: 200px;
-    }
-
-    button {
-        background-color: #008CBA;
-        color: white;
-        padding: 5px 20px;
-        border: none;
-        border-radius: 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-    }
-</style>
-
-<script>
-
-//no permitir que se envie el formulario si no se han llenado todos los campos
-
-document.querySelector('form').addEventListener('submit', function(e) {
-    let inputs = document.querySelectorAll('input');
-    let empty = false;
-    inputs.forEach(input => {
-        if (input.value === '') {
-            empty = true;
-        }
-    });
-    if (empty) {
-        e.preventDefault();
-        alert('Por favor llene todos los campos');
-    }
-});
-
-</script>
+  </style>

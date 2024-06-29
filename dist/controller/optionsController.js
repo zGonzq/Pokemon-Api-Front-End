@@ -68,5 +68,42 @@ class optionsController {
             res.render('Actions/Create');
         });
     }
+    editPost(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id;
+                const updatePokemon = Object.assign(Object.assign({}, req.body), { id });
+                const response = yield axios_1.default.put(`${config_1.API_URL}/api/pokemon/update/${id}`, updatePokemon);
+                res.redirect('/');
+            }
+            catch (error) {
+                res.redirect('/');
+            }
+        });
+    }
+    deletePost(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id;
+                yield axios_1.default.delete(`${config_1.API_URL}/api/pokemon/delete/${id}`);
+                res.redirect('/');
+            }
+            catch (error) {
+                res.redirect('/');
+            }
+        });
+    }
+    createPost(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { IDpoke, pokename, HP, attack, defense, spattack, spdefense, speed, dualtype } = req.body;
+                yield axios_1.default.post(`${config_1.API_URL}/api/pokemon/add`, { IDpoke, pokename, HP, attack, defense, spattack, spdefense, speed, dualtype });
+                res.redirect('/');
+            }
+            catch (error) {
+                res.redirect('/');
+            }
+        });
+    }
 }
 exports.optionsController = optionsController;

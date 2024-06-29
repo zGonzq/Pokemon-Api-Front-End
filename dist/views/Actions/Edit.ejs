@@ -1,11 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    edit
-</body>
-</html>
+<section>
+    <div class="px-4 py-3 my-5 text-center">
+        <img id="logo" class="d-block mx-auto mb-4" src="/images/logo.png" alt="">
+        <h1 class="display-5 fw-bold text-body-emphasis">Pokedex</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4"> Pokedex para la actividad de web  </p>
+        </div>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><% data.forEach(item => { %> <%= item.pokename %>  </li>
+        </ol>
+    </nav>
+<div class="container">
+    <div class="row">
+    <form action="/actions/edit/<%= item.IDpoke %>" method="post">
+        <ul class="list-group list-group-horizontal" id="listado">
+            <ol class="list-group">
+                <li class="list-group-item"><label for="IDpoke">ID</label><br><input type="number" readonly name="IDpoke" id="IDpoke" value="<%= item.IDpoke %>" min="1"></li>
+                <li class="list-group-item"><label for="pokename">Nombre</label><br><input type="text" name="pokename" id="pokename" value="<%= item.pokename %>"></li>
+                <li class="list-group-item"><label for="HP">Puntos de salud</label><br><input type="number" name="HP" id="HP" value="<%= item.HP %>" min="1"></li>
+                <li class="list-group-item"><label for="attack">Ataque</label><br><input type="number" name="attack" id="attack" value="<%= item.attack %>" min="1"></li>
+                <li class="list-group-item"><label for="defense">Defensa</label><br><input type="number" name="defense" id="defense" value="<%= item.defense %>" min="1"></li>
+                <li class="list-group-item"><label for="spattack">Ataque Especial</label><br><input type="number" name="spattack" id="spattack" value="<%= item.spattack %>" min="1"></li>
+                <li class="list-group-item"><label for="spdefense">Defensa Especial</label><br><input type="number" name="spdefense" id="spdefense" value="<%= item.spdefense %>" min="1"></li>
+                <li class="list-group-item"><label for="speed">Velocidad</label><br><input type="number" name="speed" id="speed" value="<%= item.speed %>" min="1"></li>
+                <li class="list-group-item"><label for="dualtype">Tipo</label><br><input type="number" name="dualtype" id="dualtype" value="<%= item.dualtype %>" min="0"></li>
+              </ol>
+        </ul>
+        <input type="submit" value="Actualizar" class="btn btn-success my-3">
+    </form>
+    </div>
+</div>
+    <% }) %>
+</section>
+
+<style>
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="submit"]{
+        width: 100%;
+        border-radius: 8px;
+        padding: 5px;
+        margin: 3px 0;
+    }
+
+    input[type="number"]{
+        width: 100%;
+        border-radius: 8px;
+        padding: 5px;
+        margin: 3px 0;
+        border: 1px solid #ccc;
+    }
+    input[type="text"]{
+        width: 100%;
+        border-radius: 8px;
+        padding: 5px;
+        margin: 3px 0;
+        border: 1px solid #ccc;
+    }
+    label{
+        font-weight: bold;
+    }
+  </style>

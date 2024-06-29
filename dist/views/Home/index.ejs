@@ -1,28 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home/styles.css" type="text/css">
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css">
-    <script src="/js/bootstrap-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Document</title>
-</head>
-<body>
+<section>
     <div class="px-4 py-5 my-5 text-center">
         <img id="logo" class="d-block mx-auto mb-4" src="/images/logo.png" alt="">
         <h1 class="display-5 fw-bold text-body-emphasis">Pokedex</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4"> Pokedex para la actividad de web  </p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a href="/options/create"><button type="button" class="btn btn-success btn-lg px-4 gap-3">Crear pokemon</button></a>
+            <a href="/actions/create"><button type="button" class="btn btn-success btn-lg px-4 gap-3">Crear pokemon</button></a>
             <button type="button" class="btn btn-outline-secondary btn-lg px-4">Total de pokemones: <%= data.length %></button>
           </div>
         </div>
       </div>
 
-    <nav aria-label="breadcrumb">
+      <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">Home</li>
         </ol>
@@ -55,15 +44,14 @@
             <% }) %>
             </div>
         </div>
-    
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <p>Desarrollado por <a href="https://github.com/zgonzq" rel="noopener noreferrer" target="_blank">Gonza</a></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-</body>
-</html>
+      </section>
+
+
+<style>
+  section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
