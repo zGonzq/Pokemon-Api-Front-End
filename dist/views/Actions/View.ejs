@@ -10,13 +10,14 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page"><% data.forEach(item => { %> <%= item.pokename %> <% }) %> </li>
+          <li class="breadcrumb-item active" aria-current="page"><% data.forEach(item => { %> <%= item.pokename %> </li>
         </ol>
       </nav>
-
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= item.IDpoke %>.png" alt="pokemon" width="250px">
+      <% }) %> 
     <div class="container">
         <div class="row">
-        <% data.forEach(item => { %>
+          <% data.forEach(item => { %>
           <ol class="col list-group pb-3">
             <li class="list-group-item d-flex justify-content-between align-items-center active">
               <div class="ms-2 me-auto">

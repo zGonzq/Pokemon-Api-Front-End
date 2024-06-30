@@ -21,6 +21,7 @@
         <div class="row">
           <% data.forEach(item => { %>
             <ol class="col-4 list-group pb-5">
+
               <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">ID pokemon</div>
@@ -31,6 +32,11 @@
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Nombre del pokemon</div>
                   <%= item.pokename %>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= item.IDpoke %>.png" alt="pokemon" width="200px">
                 </div>
               </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -45,7 +51,6 @@
             </div>
         </div>
       </section>
-
 
 <style>
   section{

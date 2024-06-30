@@ -1,3 +1,6 @@
+<title>
+    adsa
+</title>
 <section>
     <div class="px-4 py-3 my-5 text-center">
         <img id="logo" class="d-block mx-auto mb-4" src="/images/logo.png" alt="">
@@ -12,12 +15,13 @@
             <li class="breadcrumb-item active" aria-current="page"><% data.forEach(item => { %> <%= item.pokename %>  </li>
         </ol>
     </nav>
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= item.IDpoke %>.png" alt="pokemon" width="250px">
 <div class="container">
     <div class="row">
     <form action="/actions/edit/<%= item.IDpoke %>" method="post">
         <ul class="list-group list-group-horizontal" id="listado">
             <ol class="list-group">
-                <li class="list-group-item"><label for="IDpoke">ID</label><br><input type="number" readonly name="IDpoke" id="IDpoke" value="<%= item.IDpoke %>" min="1"></li>
+                <li class="list-group-item"><label for="IDpoke">ID</label><br><input type="number" readonly name="IDpoke" id="IDpoke" value="<%= item.IDpoke %>" min="1" max="1025"></li>
                 <li class="list-group-item"><label for="pokename">Nombre</label><br><input type="text" name="pokename" id="pokename" value="<%= item.pokename %>"></li>
                 <li class="list-group-item"><label for="HP">Puntos de salud</label><br><input type="number" name="HP" id="HP" value="<%= item.HP %>" min="1"></li>
                 <li class="list-group-item"><label for="attack">Ataque</label><br><input type="number" name="attack" id="attack" value="<%= item.attack %>" min="1"></li>
