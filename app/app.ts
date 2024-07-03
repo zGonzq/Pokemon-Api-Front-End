@@ -20,6 +20,6 @@ app.use('/actions', optionsRouter);
 
 const port = process.env.PORT || 3100;
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Pokedex iniciada en http://localhost:${port}/`);
 });
 
